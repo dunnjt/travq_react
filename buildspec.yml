@@ -8,9 +8,14 @@ phases:
   build:
     commands:
       - npm run build
+  copy:
+    comands:
+      - aws s3 cp --recursive ./build s3://travel-react
+      - cp appspec.yml ./build/appspec.yml
   post_build:
     commands:
       - echo Build completed on `date`
+
 artifacts:
   files:
     - build/**/*
