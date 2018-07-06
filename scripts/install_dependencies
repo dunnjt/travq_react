@@ -1,2 +1,2 @@
 #!/bin/bash
-npm install -g react-scripts
+yum install -y httpd
