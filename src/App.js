@@ -9,8 +9,7 @@ import './App.css'
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <IsLoggedIn />
+      <Fragment>       
         <Navbar />
         <Router />
       </Fragment>

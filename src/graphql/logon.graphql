@@ -1,0 +1,5 @@
+mutation CreateLogon($password: String!, $email: String!) {
+  createLogin(password: $password, email: $email) {
+    id
+  }
+}

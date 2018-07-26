@@ -22,7 +22,7 @@ const defaults = {
     query: '',
     tags: []
   },
-  questions: [{
+  questions: [{   
     __typename: 'Question',
     id: '1',
     username: 'dscalo',
@@ -42,6 +42,7 @@ const defaults = {
 }
 
 const client = new ApolloClient({
+  uri:'/graphql/',
   dataIdFromObject: o => o.id,
   clientState: {
     defaults,

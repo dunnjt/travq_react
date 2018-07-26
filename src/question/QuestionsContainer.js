@@ -4,15 +4,13 @@ import QUESTIONS_QUERY from '../graphql/questionsQuery.graphql'
 import SEARCH_QUERY from '../graphql/searchQuery.graphql'
 import QuestionsList from './QuestionsList';
 
-
-
 export default () => (
     <Query query={SEARCH_QUERY}>
       {({ data: { search } }) => {
         return (
           <Query 
             query={QUESTIONS_QUERY} 
-            variables={{search: search.query, tags: search.tags, offset: 0, limit:10}}
+            variables={{search: search.query, tags: search.tags, offset: 0, limit:50}}
             fetchPolicy="cache-and-network"
             >
             {({ loading, error, data, fetchMore }) => {
@@ -21,7 +19,7 @@ export default () => (
               // TODO handle error
               if (error) return `ERROR!!!! ${error.message}`
               return (
-                <QuestionsList questions={data.questions}
+                <QuestionsList questions={data.allQuestions}
                   onLoadMore={() => { 
                     fetchMore({
                       variables: {

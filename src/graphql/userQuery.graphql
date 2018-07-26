@@ -1,10 +1,14 @@
-query User($userId: String!) {
-  user (userId: $userId) {
+query User($id: String!) {
+  user (id: $id) {
     id
     email
     name
-    skills
+    skills {
+      skill
+    }
     points
-    badges
+    badge {
+      badge
+    }
   }
 }

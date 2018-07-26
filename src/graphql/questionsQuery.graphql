@@ -1,10 +1,22 @@
 query Questions($search: String, $tags: [String], $offset: Int, $limit: Int) {
-  questions(search: $search, tags: $tags, offset: $offset, limit: $limit) @client {
+  allQuestions(search: $search, tags: $tags, offset: $offset, limit: $limit)  {
     id
-    username
+    author {
+      name
+    }
     question      
     createdOn
-    tags
-    answers 
+    tags {
+      tags
+    }
+    answerSet{
+      id
+      answer
+      votes
+      createdOn
+      author {
+        name
+      }
+    }
   }
 } 

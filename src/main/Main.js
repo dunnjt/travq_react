@@ -5,12 +5,14 @@ import isLoggedId from '../isLoggedIn'
 import TopTags from './TopTags'
 import KnowledgeElite from './KnowledgeElite'
 import Signup from './Signup'
+import Login from './Login'
 import QuestionContainer from '../question/QuestionsContainer'
 
 const Main = ({ user }) =>
     <Fragment>
         <Header />
         <Signup />
+        <Login />
         <div className="container-fluid">
             {user &&
                 <Profile />

@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import { Mutation } from 'react-apollo'
 import QUESTION from '../graphql/question.graphql'
+import QUESTION_QUERY from '../graphql/questionsQuery.graphql'
 
 import isLoggedIn from '../isLoggedIn'
 
@@ -11,7 +12,7 @@ class AskQuestion extends PureComponent {
     onChangeTags = event => this.setState({ tags: event.target.value.split(' ') })
 
     render() {
-        const { user } = this.props.user
+        const { user } = this.props
         return (
             <div className='modal fade' id='askQuestion' tabIndex='-1' role='dialog' aria-labelledby='askQuestionLabel' aria-hidden='true'>
                 <div className='modal-dialog' role='document'>
@@ -19,12 +20,12 @@ class AskQuestion extends PureComponent {
                         <div className='modal-header'>
                             <h5 className='modal-title' id='askQuestionLabel'>Question</h5>
                         </div>
-                        {user ?
-                            (<Mutation mutation={QUESTION}>
+                        {user.id ?
+                            (<Mutation mutation={QUESTION} >
                                 {mutate => (
                                     <div>
                                         <div className='modal-body'>
-                                            <div class='text-left mb-2'>Hi There! Ask your question and allow peers and coworkers both local and global help you get your answer.</div>
+                                            <div className='text-left mb-2'>Hi There! Ask your question and allow peers and coworkers both local and global help you get your answer.</div>
                                             <form>
                                                 <div className='form-group'>
                                                     <textarea onChange={this.onChangeQuestion} className='form-control' id='message-text'></textarea>
@@ -35,7 +36,7 @@ class AskQuestion extends PureComponent {
                                                 <div className='form-group'>
                                                     <div className='form-check'>
                                                         <input className='form-check-input' type='checkbox' id='gridCheck' />
-                                                        <label className='form-check-label' for='gridCheck'>Notify me when someone responds</label>
+                                                        <label className='form-check-label' htmlFor='gridCheck'>Notify me when someone responds</label>
                                                     </div>
                                                 </div>
                                             </form>
@@ -44,7 +45,10 @@ class AskQuestion extends PureComponent {
                                             <button
                                                 type='button'
                                                 onClick={() => {
-                                                    mutate({ variables: { question: this.state.question, userId: user.id, tags: this.state.tags } })
+                                                    mutate({ 
+                                                        variables: { question: this.state.question, userId: user.id, tags: this.state.tags },
+                                                        refetchQueries:QUESTION_QUERY },
+                                                    )
                                                 }}
                                                 className='btn btn-travq'>Submit Question
                                     </button><br />
@@ -53,7 +57,7 @@ class AskQuestion extends PureComponent {
                                     </div>
                                 )}
                             </Mutation>)
-                            : (<h1>Please log in or <a data-toggle='modal' href='#signupModal' data-dismiss='modal'>sign up</a> first</h1>)
+                            : (<h1>Please <a data-toggle='modal' href='#loginModal' data-dismiss='modal'>log in</a> or <a data-toggle='modal' href='#signupModal' data-dismiss='modal'>sign up</a> first</h1>)
                         }
                         <button type='button' className='btn py-2 my-1 btn-link' data-dismiss='modal'>Cancel</button>
                     </div>

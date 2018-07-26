@@ -11,7 +11,7 @@ export default `
     id: String!
     question: String!
     createdOn: String!
-    username: String!
+    user: User!
     tags: [String!]!
     answers: [Answer]!
   }
@@ -38,7 +38,7 @@ export default `
   type Query {
     search: Search
     auth: Auth  
-    user(userId: String!): User
+    user(id: String!): User    
     questions(
       search: String, 
       tags: [String],
@@ -47,6 +47,7 @@ export default `
   }
 
   type Mutation {
+    login:(email: String, password: String): User
     search(query: String!): Search
     setAuth(userId: String!): Auth
     answer(
