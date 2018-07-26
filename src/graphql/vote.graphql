@@ -1,0 +1,9 @@
+mutation Vote($userId: String!, $questionId: String!, answerId: !string, $amount: Int!) {
+  vote(userId: $userId, questionId: $questionId, answerId: $answerId, amount: $amount) {
+    userId
+    question
+    createdOn
+    tags
+    answers
+  }
+}

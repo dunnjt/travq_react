@@ -1,0 +1,10 @@
+mutation Question($userId: String!, $question: String!, $tags: [String!]!) {
+  question(userId: $userId, question: $question, tags: $tags) {
+    id
+    username
+    question
+    createdOn
+    tags
+    answers 
+  }
+}

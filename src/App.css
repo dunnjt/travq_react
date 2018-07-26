@@ -1,28 +1,164 @@
-.App {
+html, body {
+  height: 100%;
+}
+
+#root {
+  padding-bottom: 5em;
+}
+
+.navbar {
+  padding-bottom: 0;
+  background-color: #012334;
+}
+
+.navbar li.nav-item {
+  text-transform: uppercase;
+}
+
+.navbar li.nav-item.active {
+  border-bottom: solid 3px #2ddcdf;
+}
+
+.jumbotron {
+  border-radius: 0;
+  background-image: linear-gradient(to top, #00a1b7, #04365b);
+}
+
+.btn-ask {
+  border-radius: 19px;
+  background-color: #012334;
+  color: #fff;
+  padding: 0.6em 5em;
+}
+
+.btn-travq {
+  border-radius: 19px;
+  background-color: #134c64;
+  border-color: #134c64;
+  color: #fff;
+  padding: 0.6em 1em;
+}
+
+.btn-link {
+  color: #134c64;
+}
+
+.btn-secondary {
+  background-color: #d8d8d8;
+  border-color: #d8d8d8;
+  color: #333333;
+}
+
+.tag-group .btn {
+  border-radius: 16px;
+  background-color: #efefef;
+  color: #333333;
+  margin: 0.2em;
+}
+
+.travq-question h4 {
+  font-size: 1.1em;
+}
+
+.travq-question .badge {
+  position: relative;
+}
+
+.travq-question .badge:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.5em solid transparent;
+  border-top-color: #007bff;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -0.2em;
+  margin-bottom: -0.5em;
+}
+
+.travq-answer {
+  background-color: #f9f9f9;
+}
+
+.travq-answer .user-box span {
+  display: inline-block;
+}
+
+.travq-answer .user-box {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.knowledge-elite .list-group-item {
+  border-top-width: 0;
+  border-bottom-width: 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.knowledge-elite .list-group-item:first-child {
+  border-top-width: 1px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.knowledge-elite .list-group-item:last-child {
+  border-bottom-width: 1px;
 }
 
-.App-intro {
-  font-size: large;
+h2 {
+  color: #003f5f;
+  font-weight: 300;
+  font-size: 1.6em;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h3 {
+  font-size: 1.4em;
+}
+
+.middle-image {
+  min-height: 100px;
+}
+
+.middle-image img {
+  position: absolute;
+  top: -5em;
+  right: 0;
+  left: 0;
+  border: 20px solid #fff;
+  background-color: #fff;
+  animation-name: imageAppear;
+  animation-duration: 2s;
+}
+
+@keyframes imageAppear {
+  0% { opacity: 0; top: -2em; }
+  100% { opacity: 1; }
+}
+
+.badge-collection span.fa-stack {
+  margin: 0.5em;
+}
+
+.badge-collection img {
+  padding: 1em;
+}
+
+.point-circle {
+  height: 120px;
+  width: 120px;
+  max-width: 120px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 15px solid #00ff95;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: normal;
+  margin: auto;
+}
+
+.voteButton {
+  cursor: pointer;
 }

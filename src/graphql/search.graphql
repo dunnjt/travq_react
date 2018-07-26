@@ -1,0 +1,5 @@
+mutation Search($query: String, $tag: [String]) {
+  search(query: $query, tags: $tags) @client {
+    search
+  }
+}

@@ -1,0 +1,9 @@
+mutation Answer($userId: String!, $questionId: String!, $answer: String!) {
+  answer(userId: $userId, questionId: $questionId, answer: $anser) {
+     username
+    question
+    createdOn
+    tags
+    answers 
+  }
+}

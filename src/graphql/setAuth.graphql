@@ -1,0 +1,5 @@
+ mutation SetAuth($userId: String!) {
+  setAuth(userId: $userId) @client {
+    userId
+  }
+ }

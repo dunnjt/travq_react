@@ -1,0 +1,10 @@
+query Questions($search: String, $tags: [String], $offset: Int, $limit: Int) {
+  questions(search: $search, tags: $tags, offset: $offset, limit: $limit) @client {
+    id
+    username
+    question      
+    createdOn
+    tags
+    answers 
+  }
+} 

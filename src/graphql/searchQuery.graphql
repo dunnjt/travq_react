@@ -1,0 +1,6 @@
+query  {
+  search  @client {
+   query
+   tags
+  }
+}
